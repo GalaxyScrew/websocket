@@ -23,9 +23,11 @@ implement websocket in go and use the chating-room as practice
 （4）运行客户端，用浏览器打开client_online.html就行了
 
 
-websocket聊天室主要是仿造：https://github.com/zhenbianshu/websocket
+websocket聊天室主要是仿造：https://github.com/zhenbianshu/websocket (php实现)
 
-客户端完全是使用他的，然后服务端就自己写
+客户端完全是使用他的，然后服务端（go实现）就自己写
+
+用go实现可以解决php实现时，不同socket不能并发操作的问题，主要是用goroutine来解决并发
 
 websocket实现闲谈：
 
