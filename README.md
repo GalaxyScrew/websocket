@@ -47,25 +47,7 @@ base64_encode(sha1($key . "258EAFA5-E914-47DA-95CA-C5AB0DC85B11", true));
         Note1：消息的分片必须由发送者按给定的顺序发送给接收者。
         Note2：控制帧禁止分片
         Note3：接受者不必按顺序缓存整个frame来处理
-
-  0                   1                   2                   3
-  0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
- +-+-+-+-+-------+-+-------------+-------------------------------+
- |F|R|R|R| opcode|M| Payload len |    Extended payload length    |
- |I|S|S|S|  (4)  |A|     (7)     |             (16/64)           |
- |N|V|V|V|       |S|             |   (if payload len==126/127)   |
- | |1|2|3|       |K|             |                               |
- +-+-+-+-+-------+-+-------------+ - - - - - - - - - - - - - - - +
- |     Extended payload length continued, if payload len == 127  |
- + - - - - - - - - - - - - - - - +-------------------------------+
- |                               |Masking-key, if MASK set to 1  |
- +-------------------------------+-------------------------------+
- | Masking-key (continued)       |          Payload Data         |
- +-------------------------------- - - - - - - - - - - - - - - - +
- :                     Payload Data continued ...                :
- + - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - +
- |                     Payload Data continued ...                |
- +---------------------------------------------------------------+
+	
 解析规则：
 第一个字节：
 	1bit: frame-fin，x0表示该message后续还有frame；x1表示是message的最后一个frame
