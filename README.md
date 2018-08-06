@@ -60,7 +60,9 @@ base64_encode(sha1($key . "258EAFA5-E914-47DA-95CA-C5AB0DC85B11", true));
         data[offset + i] ^= masking_key[j];
 	
     }
-    
+
+ ![image](https://github.com/GalaxyScrew/websocket/blob/master/frame.png)
+ 
 （1）没有分片：FIN为1，操作码非0的帧
 
 （2）分片：
@@ -115,10 +117,15 @@ base64_encode(sha1($key . "258EAFA5-E914-47DA-95CA-C5AB0DC85B11", true));
 
 掩码：
 
-    掩码键是由客户端随机选择的32位值。当准备一个掩码的帧时，客户端必须从允许的32位值集合中选择一个新的掩码键。掩码键需要是不可预测的；因此，掩码键必须来自一个强大的熵源，且用于给定帧的掩码键必须不容易被服务器/代理预测用于后续帧的掩码键。
+    掩码键是由客户端随机选择的32位值。当准备一个掩码的帧时，客户端必须从允许的32位值集合中选择一个新的掩码键。掩码键需要是不可预测的；
+    
+    因此，掩码键必须来自一个强大的熵源，且用于给定帧的掩码键必须不容易被服务器/代理预测用于后续帧的掩码键。
     
     主要是用于解决协议转换（upgrade）引起的漏洞（污染代理服务器）
 
+ ![image](https://github.com/GalaxyScrew/websocket/blob/master/attack.png)
+ 
+ 
 精心构建的报文
 
 Client → Server:
